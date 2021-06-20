@@ -1,47 +1,61 @@
-package com.kumar.Spring;
+package Springcore10;
 
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
-
 @Component
-public class Customer {
-	private int Customerid;
-	private String CustomerName;
-	private double customerContact;
+public class Customer implements ApplicationContextAware,BeanNameAware{
+	private int customerId;
+	private String customerName;
+	private int customerContact;
+	private ApplicationContext context = null;
 	@Autowired
-	private Address customeraddress;
-	public int getCustomerid() {
-		return 1234;
+	private Address customerAddress;
+	
+	
+	public int getCustomerId() {
+		return 100;
 	}
-	public void setCustomerid(int customerid) {
-		Customerid = customerid;
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
 	}
 	public String getCustomerName() {
-		return "dinesh";
+		return "Abhi";
 	}
 	public void setCustomerName(String customerName) {
-		CustomerName = customerName;
+		this.customerName = customerName;
 	}
-	public double getCustomerContact() {
-		return 703253136;
+	public int getCustomerContact() {
+		return 2632230;
 	}
-	public void setCustomerContact(double customerContact) {
+	public void setCustomerContact(int customerContact) {
 		this.customerContact = customerContact;
 	}
-	public Address getCustomeraddress() {
-		return customeraddress;
+	public Address getCustomerAddress() {
+		return customerAddress;
 	}
 	public void setCustomerAddress(Address customerAddress) {
-		this.customeraddress = customerAddress;
+		this.customerAddress = customerAddress;
 	}
-	public void customerDetails() {
-		System.out.println("Customer id =" + getCustomerid());
-		System.out.println("CustomerName =" + getCustomerName());
-		System.out.println("CustomerContact =" +getCustomerContact());
-		System.out.println("CustomerAddress =" + getCustomeraddress().getCity()+ " " 
-		+ getCustomeraddress().getCountry()+ "" + getCustomeraddress().getZip()+ "" 
-		+getCustomeraddress().getState()+ "" + getCustomeraddress().getStreet());
+	
+	public void customerDetails()
+	{
+		System.out.println("Customer ID is =" + getCustomerId());
+		System.out.println("Customer Name is =" + getCustomerName());
+		System.out.println("Customer Contact Number is =" + getCustomerContact());
+		System.out.println("Address of the Customer is =" + getCustomerAddress().getCity()+ " " + getCustomerAddress().getCountry()+ " " + getCustomerAddress().getZip() +" " +getCustomerAddress().getState() + " " +getCustomerAddress().getStreet());
+	} 
+	
+	public void setApplicationContext(ApplicationContext context) throws BeansException {
 		
+		this.context =context;
+		
+	}
+	public void setBeanName(String name) {
+		System.out.println("Bean name is = "+name);
 	}
 	
 

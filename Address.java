@@ -1,4 +1,4 @@
-package com.kumar.Spring;
+package Springcore10;
 
 import org.springframework.stereotype.Component;
 
@@ -9,20 +9,21 @@ public class Address {
 	private String state;
 	private int zip;
 	private String country;
+	
 	public String getStreet() {
-		return "Temple Street";
+		return "Temple";
 	}
 	public void setStreet(String street) {
 		this.street = street;
 	}
 	public String getCity() {
-		return "Koyyalagudem";
+		return "JRG";
 	}
 	public void setCity(String city) {
 		this.city = city;
 	}
 	public String getState() {
-		return "andhra";
+		return "AP";
 	}
 	public void setState(String state) {
 		this.state = state;
@@ -34,14 +35,11 @@ public class Address {
 		this.zip = zip;
 	}
 	public String getCountry() {
-		return "india";
+		return "India";
 	}
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	
-	
-	
-	
-
 }
+
+
