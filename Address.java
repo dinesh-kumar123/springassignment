@@ -1,4 +1,4 @@
-package Springcore10;
+package Springcore8;
 
 import org.springframework.stereotype.Component;
 
@@ -17,7 +17,7 @@ public class Address {
 		this.street = street;
 	}
 	public String getCity() {
-		return "JRG";
+		return "Jrg";
 	}
 	public void setCity(String city) {
 		this.city = city;
@@ -41,5 +41,6 @@ public class Address {
 		this.country = country;
 	}
 }
+
 
 

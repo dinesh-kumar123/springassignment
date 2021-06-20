@@ -1,17 +1,16 @@
-package Springcore10;
+package Springcore8;
 
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 @Component
-public class Customer implements ApplicationContextAware,BeanNameAware{
+public class Customer implements InitializingBean,DisposableBean{
 	private int customerId;
 	private String customerName;
 	private int customerContact;
-	private ApplicationContext context = null;
+
 	@Autowired
 	private Address customerAddress;
 	
@@ -41,7 +40,7 @@ public class Customer implements ApplicationContextAware,BeanNameAware{
 		this.customerAddress = customerAddress;
 	}
 	
-	public void customerDetails()
+	public  void customerDetails()
 	{
 		System.out.println("Customer ID is =" + getCustomerId());
 		System.out.println("Customer Name is =" + getCustomerName());
@@ -49,14 +48,13 @@ public class Customer implements ApplicationContextAware,BeanNameAware{
 		System.out.println("Address of the Customer is =" + getCustomerAddress().getCity()+ " " + getCustomerAddress().getCountry()+ " " + getCustomerAddress().getZip() +" " +getCustomerAddress().getState() + " " +getCustomerAddress().getStreet());
 	} 
 	
-	public void setApplicationContext(ApplicationContext context) throws BeansException {
+	public void afterPropertiesSet() throws BeansException {
 		
-		this.context =context;
+		System.out.println("Initializing method for rectangle");
 		
 	}
-	public void setBeanName(String name) {
-		System.out.println("Bean name is = "+name);
+	public void destroy() throws Exception {
+		System.out.println("Disposable Destroy method called for rectangle");
 	}
 	
-
 }
